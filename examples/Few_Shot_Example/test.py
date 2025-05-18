@@ -1,6 +1,6 @@
-from utils import DataLoader
-from llmChainBuild import FewShotChainBuilder
-from runner import Runner
+from llm import DataLoader
+from llm import FewShotChainBuilder
+from llm import FewShotRunner
 import pandas as pd
 import api
 import prompt
@@ -25,6 +25,6 @@ builder = FewShotChainBuilder(
 chain = builder.build_chain()
 
 # run with data and export csv answers
-runner = Runner(chain = chain, knowledge_data= knowledge, questions_df = pd.DataFrame(questions.iloc[:5, 0]))
+runner = FewShotRunner(chain = chain, knowledge_data= knowledge, questions_df = pd.DataFrame(questions.iloc[:5, 0]))
 runner.run_questions_csv()
 runner.save_to_csv("data/final_answers.csv")

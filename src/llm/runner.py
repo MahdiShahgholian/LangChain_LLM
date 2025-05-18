@@ -1,8 +1,12 @@
 import time
-from llmChainBuild import FewShotChainBuilder
+from llm.llmChainBuild import FewShotChainBuilder
 import pandas as pd
 
+
 class Runner:
+    pass
+
+class FewShotRunner(Runner):
     def __init__(self, chain: FewShotChainBuilder, knowledge_data, questions_df : pd.DataFrame):
         self.chain = chain
         self.knowledge_data = knowledge_data
